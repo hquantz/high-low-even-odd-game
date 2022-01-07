@@ -45,12 +45,25 @@ public class HighLowEvenOddGame {
             correctGuess = false;
         } else if (diceTotal > 7 && highLow.equalsIgnoreCase("l")) {
             correctGuess = false;
-        } else if (diceTotal < 7 && highLow.equalsIgnoreCase("l")) {
+        } else {
+            correctGuess = true;
+        }
+
+        return correctGuess;
+    }//end rangeTest
+
+    public static boolean evenOddTest(int diceTotal, String evenOdd) {
+        boolean correctGuess;
+
+        if (diceTotal % 2 == 1 && evenOdd.equalsIgnoreCase("o")) {
+            correctGuess = true;
+        } else if (diceTotal % 2 == 1 && evenOdd.equalsIgnoreCase("e")) {
+            correctGuess = false;
+        } else if (diceTotal % 2 == 0 && evenOdd.equalsIgnoreCase("e")) {
             correctGuess = true;
         } else {
             correctGuess = false;
         }
-
         return correctGuess;
     }
 
