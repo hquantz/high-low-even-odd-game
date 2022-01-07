@@ -18,16 +18,23 @@ public class HighLowEvenOddGame {
         String evenOdd; //Stores if the user guesses Even or Odd
         int die1, die2;//stores the dice
         int diceTotal; //stores the dice total
+        String playAgain = "y"; //stores if the user wants to play again
 
         System.out.println("High-Low Even-Odd Game by Hunter Quantz\n");
-        System.out.print("Will the next total be High (h) or Low (l)? ");
-        highLow = stdInString.next();
-        System.out.print("Will the next total be Even (e) or Odd (o)? ");
-        evenOdd = stdInString.next();
 
-        die1 = rollDie();
-        die2 = rollDie();
-        diceTotal = die1 + die2;
+        while (!playAgain.equalsIgnoreCase("n")) {
+            System.out.print("Will the next total be High (h) or Low (l)? ");
+            highLow = stdInString.next();
+            System.out.print("Will the next total be Even (e) or Odd (o)? ");
+            evenOdd = stdInString.next();
+
+            die1 = rollDie();
+            die2 = rollDie();
+            diceTotal = die1 + die2;
+            results(diceTotal, evenOdd, highLow);
+            System.out.print("Do you want to play again? (y/n) ");
+            playAgain = stdInString.next();
+        }
 
     }// end main
 
@@ -65,6 +72,22 @@ public class HighLowEvenOddGame {
             correctGuess = false;
         }
         return correctGuess;
+    }//end evenOddTest
+
+    public static void results(int diceTotal, String evenOdd, String highLow) {
+        System.out.printf("The total is %d%n", diceTotal);
+
+        if (diceTotal == 7) {
+            System.out.println("It's the dreaded 7, no way to win");
+        } else if (evenOddTest(diceTotal, evenOdd) && rangeTest(diceTotal, highLow)) {
+            System.out.println("You are totally correct!");
+        } else if (!evenOddTest(diceTotal, evenOdd) && rangeTest(diceTotal, highLow)) {
+            System.out.println("You are totally wrong!");
+        } else if (rangeTest(diceTotal, highLow) && !evenOddTest(diceTotal, evenOdd)) {
+            System.out.println("You didn't get the even/odd right");
+        } else if (evenOddTest(diceTotal, evenOdd) && !rangeTest(diceTotal, highLow)) {
+            System.out.println("You didn't get the range right");
+        }
     }
 
 }// end HighLowEvenOddGame class
