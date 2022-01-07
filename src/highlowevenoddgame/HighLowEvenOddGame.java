@@ -13,7 +13,20 @@ import java.util.Scanner;
 public class HighLowEvenOddGame {
 
     public static void main(String[] args) {
-        Scanner stdIn = new Scanner(System.in);
+        Scanner stdInString = new Scanner(System.in);
+        String highLow; //stores if the user guesses High or Low
+        String evenOdd; //Stores if the user guesses Even or Odd
+        int die1, die2;//stores the dice
+        
+        System.out.println("High-Low Even-Odd Game by Hunter Quantz\n");
+        System.out.print("Will the next total be High (h) or Low (l)? ");
+        highLow = stdInString.next();
+        System.out.print("Will the next total be Even (e) or Odd (o)? ");
+        evenOdd = stdInString.next();
+        
+        die1 = rollDie();
+        die2 = rollDie();
+        
     }// end main
 
     //This method returns the value of a randomly rolled die.
