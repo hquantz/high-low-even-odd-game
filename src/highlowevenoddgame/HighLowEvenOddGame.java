@@ -7,6 +7,7 @@
  * total will be even or odd.
  */
 package highlowevenoddgame;
+
 import java.util.Scanner;
 
 public class HighLowEvenOddGame {
@@ -14,5 +15,10 @@ public class HighLowEvenOddGame {
     public static void main(String[] args) {
 
     }// end main
+
+    //This method returns the value of a randomly rolled die.
+    public static int rollDie() {
+        return (int) (Math.random() * 6 + 1);
+    }//end rollDie
 
 }// end HighLowEvenOddGame class
