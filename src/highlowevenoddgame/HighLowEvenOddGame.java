@@ -15,18 +15,38 @@ public class HighLowEvenOddGame {
     public static void main(String[] args) {
         Scanner stdInString = new Scanner(System.in);
         String highLow; //stores if the user guesses High or Low
-        String evenOdd; //Stores if the user guesses Even or Odd
+        String evenOdd = "z"; //Stores if the user guesses Even or Odd
         int die1, die2;//stores the dice
         int diceTotal; //stores the dice total
         String playAgain = "y"; //stores if the user wants to play again
+        boolean validInput = false;//stores if an input is valid
 
         System.out.println("High-Low Even-Odd Game by Hunter Quantz\n");
 
+        //this doesn't work for me. It just causes an endless loop so I am doing a work around
+//        do{
+//            System.out.print("Will the next total be High (h) or Low (l)? ");
+//            highLow = stdInString.next();
+//        }while(!highLow.equalsIgnoreCase("h") || !highLow.equalsIgnoreCase("l"));
         while (!playAgain.equalsIgnoreCase("n")) {
-            System.out.print("Will the next total be High (h) or Low (l)? ");
-            highLow = stdInString.next();
-            System.out.print("Will the next total be Even (e) or Odd (o)? ");
-            evenOdd = stdInString.next();
+            do {
+                System.out.print("Will the next total be High (h) or Low (l)? ");
+                highLow = stdInString.next();
+                if (highLow.equalsIgnoreCase("h") || highLow.equalsIgnoreCase("l")) {
+                    validInput = true;
+                }
+            } while (!validInput);
+            validInput = false;
+
+            do {
+                System.out.print("Will the next total be Even (e) or Odd (o)? ");
+                evenOdd = stdInString.next();
+                if (evenOdd.equalsIgnoreCase("e") || evenOdd.equalsIgnoreCase("o")) {
+                    validInput = true;
+                }
+            } while (!validInput);
+
+            validInput = false;
 
             die1 = rollDie();
             die2 = rollDie();
