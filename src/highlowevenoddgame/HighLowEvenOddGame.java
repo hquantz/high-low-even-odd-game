@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class HighLowEvenOddGame {
 
     public static void main(String[] args) {
-
+        Scanner stdIn = new Scanner(System.in);
     }// end main
 
     //This method returns the value of a randomly rolled die.
