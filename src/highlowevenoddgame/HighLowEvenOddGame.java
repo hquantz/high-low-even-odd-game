@@ -101,7 +101,7 @@ public class HighLowEvenOddGame {
             System.out.println("It's the dreaded 7, no way to win");
         } else if (evenOddTest(diceTotal, evenOdd) && rangeTest(diceTotal, highLow)) {
             System.out.println("You are totally correct!");
-        } else if (!evenOddTest(diceTotal, evenOdd) && rangeTest(diceTotal, highLow)) {
+        } else if (!evenOddTest(diceTotal, evenOdd) && !rangeTest(diceTotal, highLow)) {
             System.out.println("You are totally wrong!");
         } else if (rangeTest(diceTotal, highLow) && !evenOddTest(diceTotal, evenOdd)) {
             System.out.println("You didn't get the even/odd right");
