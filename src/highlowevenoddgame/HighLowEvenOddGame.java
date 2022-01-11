@@ -52,8 +52,16 @@ public class HighLowEvenOddGame {
             die2 = rollDie();
             diceTotal = die1 + die2;
             results(diceTotal, evenOdd, highLow);
+            
+            do{
             System.out.print("Do you want to play again? (y/n) ");
             playAgain = stdInString.next();
+            if(playAgain.equalsIgnoreCase("n") || playAgain.equalsIgnoreCase("y")){
+                validInput = true;
+            }
+            }while(!validInput);
+            
+            validInput = false;
         }
 
     }// end main
